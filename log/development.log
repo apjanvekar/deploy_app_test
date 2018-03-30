@@ -1,0 +1,89 @@
+  [1m[36m (63.1ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (65.6ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateTodos (20180330070411)
+  [1m[35m (39.3ms)[0m  CREATE TABLE `todos` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `finished` tinyint(1), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20180330070411')
+  [1m[36m (4.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.7ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (1.1ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'depoly_app_development'
+  AND fk.table_name = 'todos'
+[0m
+  [1m[35m (0.5ms)[0m  SHOW CREATE TABLE `todos`
+
+
+Started GET "/" for ::1 at 2018-03-30 12:37:09 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/rubyuser/.rvm/gems/ruby-2.2.2/gems/railties-4.2.8/lib/rails/templates/rails/welcome/index.html.erb (2.5ms)
+Completed 200 OK in 44ms (Views: 17.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-03-30 12:38:00 +0530
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.4ms)[0m  SELECT `todos`.* FROM `todos`
+  Rendered todos/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 1170ms (Views: 1166.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/scaffolds.self-b8ec12dbf25cf8448cf54934ed0caf53e88a78df9e3a1f503bb4b5ea3bf49f7b.css?body=1" for ::1 at 2018-03-30 12:38:02 +0530
+
+
+Started GET "/assets/todos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2018-03-30 12:38:02 +0530
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2018-03-30 12:38:02 +0530
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2018-03-30 12:38:02 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2018-03-30 12:38:02 +0530
+
+
+Started GET "/assets/todos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2018-03-30 12:38:02 +0530
+
+
+Started GET "/assets/turbolinks.self-2db6ec539b9190f75e1d477b305df53d12904d5cafdd47c7ffd91ba25cbec128.js?body=1" for ::1 at 2018-03-30 12:38:02 +0530
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2018-03-30 12:38:02 +0530
+
+
+Started GET "/todos/new" for ::1 at 2018-03-30 12:38:05 +0530
+Processing by TodosController#new as HTML
+  Rendered todos/_form.html.erb (51.2ms)
+  Rendered todos/new.html.erb within layouts/application (253.0ms)
+Completed 200 OK in 302ms (Views: 287.3ms | ActiveRecord: 4.6ms)
+
+
+Started POST "/todos" for ::1 at 2018-03-30 12:38:15 +0530
+Processing by TodosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Se5mi4JvjwOFWHeEILPPVejl454waM52WoA0z5iGSEzN+bwJ55H3YXpA3Jo/b/aBnfgTRO4u6ydznaD6OqDBeQ==", "todo"=>{"name"=>"deployment", "finished"=>"0"}, "commit"=>"Create Todo"}
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `todos` (`name`, `finished`, `created_at`, `updated_at`) VALUES ('deployment', 0, '2018-03-30 07:08:15', '2018-03-30 07:08:15')
+  [1m[36m (8.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/todos/1
+Completed 302 Found in 23ms (ActiveRecord: 9.6ms)
+
+
+Started GET "/todos/1" for ::1 at 2018-03-30 12:38:15 +0530
+Processing by TodosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTodo Load (0.4ms)[0m  SELECT  `todos`.* FROM `todos` WHERE `todos`.`id` = 1 LIMIT 1
+  Rendered todos/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 44ms (Views: 30.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/todos" for ::1 at 2018-03-30 12:38:17 +0530
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (1.0ms)[0m  [1mSELECT `todos`.* FROM `todos`[0m
+  Rendered todos/index.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 66ms (Views: 61.2ms | ActiveRecord: 1.0ms)
