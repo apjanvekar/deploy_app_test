@@ -1,7 +1,7 @@
 # config valid only for current version of Capistrano
 lock '3.10.1'
 
-set :application, 'test_user'
+set :application, 'deplo_app'
 set :repo_url, 'git@github.com:apjanvekar/deploy_app_test.git' # Edit this to match your repository
 set :branch, :master
 set :deploy_to, '/home/deploy/deploy_app'
