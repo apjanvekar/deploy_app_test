@@ -1,3 +1,6 @@
+#server '18.219.22.125', user: 'test_user', roles: %w{web app db}
+server '104.239.168.252', user: 'appuser', roles: %w{web app db}
+
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.
@@ -59,5 +62,5 @@
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
-server '18.219.22.125', user: 'test_user', roles: %w{web app db}
+
 
