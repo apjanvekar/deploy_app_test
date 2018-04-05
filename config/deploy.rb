@@ -73,6 +73,14 @@ namespace :deploy do
     end
   end
 
+	desc 'Set config/puma.rb-symlink for upstart'
+	task :pumaconfigln do
+	on roles(:app) do
+	execute "ln -s #{sharedpath}/puma.rb #{fetch(:deployto)}/current/config/puma.rb"
+	end
+	end
+
+  after  :finishing,     :pumaconfigln
   before :starting,     :check_revision
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
