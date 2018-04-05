@@ -76,7 +76,7 @@ namespace :deploy do
 	desc 'Set config/puma.rb-symlink for upstart'
 	task :pumaconfigln do
 	on roles(:app) do
-	execute "ln -s #{sharedpath}/puma.rb #{fetch(:deployto)}/current/config/puma.rb"
+	execute "ln -s #{shared_path}/puma.rb #{fetch(:deploy_to)}/current/config/puma.rb"
 	end
 	end
 
