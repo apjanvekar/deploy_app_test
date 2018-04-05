@@ -1,5 +1,6 @@
 # Change these
 server '104.239.168.252',roles: [:web, :app, :db], primary: true
+set :puma_bind, 'tcp://0.0.0.0:8585'
 
 set :repo_url,        'git@github.com:apjanvekar/deploy_app_test.git'
 set :application,     'deploy_test'
